@@ -1,0 +1,22 @@
+
+#----------------------------- Global Properties ----------------------------#
+
+/outputDir:bin/$(Platform)
+/intermediateDir:obj/$(Platform)
+/platform:DesktopGL
+/config:
+/profile:Reach
+/compress:False
+
+#-------------------------------- References --------------------------------#
+
+/reference:../bin/Debug/netcoreapp3.1/TiledCS.dll
+/reference:../../Pipeline/bin/Debug/netstandard2.0/TiledCS.Extensions.MonoGame.Content.Pipeline.dll
+
+#---------------------------------- Content ---------------------------------#
+
+#begin Map.tmx
+/importer:TiledMapImporter
+/processor:PassThroughProcessor
+/build:Map.tmx
+
