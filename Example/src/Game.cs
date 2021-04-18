@@ -10,6 +10,7 @@ namespace TiledCS.Extensions.MonoGame.Example
         private SpriteBatch _spriteBatch;
 
         private TiledMap _map;
+        private TiledTileset _tileset;
 
         public Game()
         {
@@ -33,10 +34,14 @@ namespace TiledCS.Extensions.MonoGame.Example
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            _map = Content.Load<TiledMap>("Map");
 
-            System.Console.WriteLine("TiledVersion: {0}", _map.TiledVersion);
+            _map = Content.Load<TiledMap>("Map");
+            _tileset = Content.Load<TiledTileset>("Tileset");
+
+            System.Console.WriteLine("Map.TiledVersion: {0}", _map.TiledVersion);
             System.Console.WriteLine("Dimensions: {0}, {1}", _map.Width, _map.Height);
+
+            System.Console.WriteLine("Tileset.TiledVersion: {0}", _tileset.TiledVersion);
         }
 
         protected override void Update(GameTime gameTime)
