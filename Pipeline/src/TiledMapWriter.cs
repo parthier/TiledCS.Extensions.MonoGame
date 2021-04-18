@@ -59,20 +59,20 @@ namespace TiledCS.Extensions.MonoGame.Content.Pipeline
             output.Write(map.TileHeight);
         }
 
-        public static void WriteProperty(TiledProperty property, ContentWriter output)
+        public void WriteProperty(TiledProperty property, ContentWriter output)
         {
             output.Write(property.name);
             output.Write(property.type);
             output.Write(property.value);
         }
 
-        public static void WriteMapTileset(TiledMapTileset tileset, ContentWriter output)
+        public void WriteMapTileset(TiledMapTileset tileset, ContentWriter output)
         {
             output.Write(tileset.firstgid);
             output.Write(tileset.source);
         }
 
-        public static void WriteLayer(TiledLayer layer, ContentWriter output)
+        public void WriteLayer(TiledLayer layer, ContentWriter output)
         {
             output.Write(layer.id);
             output.Write(layer.name);
@@ -123,7 +123,7 @@ namespace TiledCS.Extensions.MonoGame.Content.Pipeline
             }
         }
 
-        public static void WriteObject(TiledObject @object, ContentWriter output)
+        public void WriteObject(TiledObject @object, ContentWriter output)
         {
             output.Write(@object.id);
             output.Write(@object.name);
