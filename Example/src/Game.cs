@@ -36,6 +36,7 @@ namespace TiledCS.Extensions.MonoGame.Example
             _map = Content.Load<TiledMap>("Map");
 
             System.Console.WriteLine("TiledVersion: {0}", _map.TiledVersion);
+            System.Console.WriteLine("Dimensions: {0}, {1}", _map.Width, _map.Height);
         }
 
         protected override void Update(GameTime gameTime)
