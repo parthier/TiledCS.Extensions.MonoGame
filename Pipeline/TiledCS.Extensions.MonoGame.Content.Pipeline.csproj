@@ -9,8 +9,6 @@
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ThirdParty\TiledCS\src\TiledCS.csproj" />
+    <PackageReference Include="TiledCS" Version="2.1.1" />
   </ItemGroup>
 </Project>
