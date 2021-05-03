@@ -40,6 +40,11 @@ namespace TiledCS.Extensions.MonoGame.Rendering
             _texture = content.Load<Texture2D>(assetName);
         }
 
+        public void Unload()
+        {
+            _texture.Dispose();
+        }
+
         public void Draw(SpriteBatch spriteBatch, int x, int y)
         {
             spriteBatch.Draw(_texture, new Vector2(x * _tileset.TileWidth, y * _tileset.TileHeight), _sourceRectangle, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);

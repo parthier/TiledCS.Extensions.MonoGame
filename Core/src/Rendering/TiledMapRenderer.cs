@@ -42,6 +42,15 @@ namespace TiledCS.Extensions.MonoGame.Rendering
             }
         }
 
+        public void Unload()
+        {
+            for (int index = 0; index < Layers.Length; ++index)
+                Layers[index].Unload();
+
+            Layers = null;
+            _tilesets.Clear();
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             for (int index = 0; index < Layers.Length; ++index)

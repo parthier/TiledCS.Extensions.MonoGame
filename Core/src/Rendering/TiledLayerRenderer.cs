@@ -41,6 +41,20 @@ namespace TiledCS.Extensions.MonoGame.Rendering
             }
         }
 
+        public void Unload()
+        {
+            for (int x = 0; x < Source.width; ++x)
+            {
+                for (int y = 0; y < Source.height; ++y)
+                {
+                    TiledTileRenderer tile = Tiles[x, y];
+
+                    if (tile != null)
+                        tile.Unload();
+                }
+            }
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             for (int x = 0; x < Source.width; ++x)
