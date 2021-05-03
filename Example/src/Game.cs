@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using TiledCS.Extensions.MonoGame.Rendering;
 
 namespace TiledCS.Extensions.MonoGame.Example
 {
@@ -9,8 +10,7 @@ namespace TiledCS.Extensions.MonoGame.Example
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
-        private TiledMap _map;
-        private TiledTileset _tileset;
+        private TiledMapRenderer _renderer;
 
         public Game()
         {
@@ -35,13 +35,10 @@ namespace TiledCS.Extensions.MonoGame.Example
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            _map = Content.Load<TiledMap>("Map");
-            _tileset = Content.Load<TiledTileset>("Tileset");
+            TiledMap map = Content.Load<TiledMap>("Map");
 
-            System.Console.WriteLine("Map.TiledVersion: {0}", _map.TiledVersion);
-            System.Console.WriteLine("Dimensions: {0}, {1}", _map.Width, _map.Height);
-
-            System.Console.WriteLine("Tileset.TiledVersion: {0}", _tileset.TiledVersion);
+            _renderer = new TiledMapRenderer(map);
+            _renderer.Load(Content);
         }
 
         protected override void Update(GameTime gameTime)
@@ -58,8 +55,7 @@ namespace TiledCS.Extensions.MonoGame.Example
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             _spriteBatch.Begin();
-
-
+            _renderer.Draw(_spriteBatch);
             _spriteBatch.End();
 
             base.Draw(gameTime);
