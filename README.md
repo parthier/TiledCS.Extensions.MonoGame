@@ -1,5 +1,5 @@
 # TiledCS.Extensions.MonoGame
-The officially supported MonoGame port for the TiledCS library.
+A MonoGame port of the [TiledCS](https://github.com/TheBoneJarmer/TiledCS) library.
 
 ## Overview
 This [TiledCS](https://github.com/TheBoneJarmer/TiledCS) extension makes integrating the library easier for MonoGame projects.
