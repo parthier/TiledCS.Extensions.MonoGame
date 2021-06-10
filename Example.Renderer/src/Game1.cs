@@ -3,16 +3,16 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using TiledCS.Extensions.MonoGame.Rendering;
 
-namespace TiledCS.Extensions.MonoGame.Example
+namespace TiledCS.Extensions.MonoGame.Example.Renderer
 {
-    public class Game : Microsoft.Xna.Framework.Game
+    public class Game1 : Game
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
         private TiledMapRenderer _renderer;
 
-        public Game()
+        public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";

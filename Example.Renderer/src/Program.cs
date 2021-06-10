@@ -1,13 +1,13 @@
 ﻿using System;
 
-namespace TiledCS.Extensions.MonoGame.Example
+namespace TiledCS.Extensions.MonoGame.Example.Renderer
 {
     public static class Program
     {
         [STAThread]
         private static void Main()
         {
-            using (Game game = new Game())
+            using (Game1 game = new Game1())
                 game.Run();
         }
     }
