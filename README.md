@@ -1,19 +1,26 @@
 # TiledCS.Extensions.MonoGame
-The officially supported MonoGame port for the TiledCS library.
+
+A MonoGame port of the [TiledCS](https://github.com/TheBoneJarmer/TiledCS) library that comes
+with a complete content pipeline and minimal rendering code.
+
+**DISCLAIMER:** During development of this library, it turned out to be really hard to write
+rendering code that is useful for everyone's needs. This is why the project only comes with a very
+basic rendering API. The rest is entirely up to the users.
 
 ## Overview
-This [TiledCS](https://github.com/TheBoneJarmer/TiledCS) extension makes integrating the library easier for MonoGame projects.
-It comes with the following features by default.
+
+This extension for [TiledCS](https://github.com/TheBoneJarmer/TiledCS) is aimed at integrating the library
+in MonoGame projects more easily. It comes with the following features by default:
 
 - A custom Content Pipeline extension;
 - Basic rendering functionality;
 - An example implementation of the rendering functionality.
 
-Keep in mind that for advanced tile rendering, you would still need to write your own rendering code outside the library.
-The reason for this is that it's difficult to write good rendering code that matches everyone's needs.
-
 ## Development
-If you want to compile the library on your own or contribute to it, you'll have to get started by cloning the project.
+
+If you want to compile the library on your own or contribute to it, you'll have to get started by
+cloning the project.
+
 ```sh
 git clone https://github.com/delightedcat/TiledCS.Extensions.MonoGame.git
 cd TiledCS.Extensions.MonoGame/
