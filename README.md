@@ -12,9 +12,10 @@ basic rendering API. The rest is entirely up to the users.
 This extension for [TiledCS](https://github.com/TheBoneJarmer/TiledCS) is aimed at integrating the library
 in MonoGame projects more easily. It comes with the following features by default:
 
-- A custom Content Pipeline extension;
-- Basic rendering functionality;
-- An example implementation of the rendering functionality.
+- A custom Content Pipeline extension (`Pipeline`);
+- Basic rendering functionality (`Core`);
+- An example implementation of the rendering functionality (`Example.Rendering`);
+- An example implementation using only the Content Pipeline extension (`Example.Vanilla`).
 
 ## Development
 
