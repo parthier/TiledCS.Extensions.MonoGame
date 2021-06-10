@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiledCS.Extensions.MonoGame
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiledCS.Extensions.MonoGame.Pipeline", "Pipeline\TiledCS.Extensions.MonoGame.Content.Pipeline.csproj", "{1ADA334F-CF2D-4D75-8A7E-D89AAA083295}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiledCS.Extensions.MonoGame.Example", "Example\TiledCS.Extensions.MonoGame.Example.csproj", "{0EABB360-1945-451E-8D28-0EA8071C674F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiledCS.Extensions.MonoGame.Example.Renderer", "Example.Renderer\TiledCS.Extensions.MonoGame.Example.Renderer.csproj", "{0EABB360-1945-451E-8D28-0EA8071C674F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
