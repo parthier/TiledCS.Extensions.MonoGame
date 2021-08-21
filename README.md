@@ -17,6 +17,31 @@ in MonoGame projects more easily. It comes with the following features by defaul
 - An example implementation of the rendering functionality (`Example.Rendering`);
 - An example implementation using only the Content Pipeline extension (`Example.Vanilla`).
 
+## Getting Started
+
+**NOTE:** A NuGet package should be coming soon to ease up the process of installing
+the library!
+
+There are two ways to go about getting started with this library; with or without the
+build-in renderer. For very basic demonstrations, using the renderer is probably fine,
+but for more advanced cases you're probably looking for a custom rendering solution.
+
+First off, you will need to clone the library and include it into your project as you
+normally would. Compile the project once in your editor/IDE of choice and
+[reference the freshly built DLL in your MonoGame Content Pipeline project](https://www.monogameextended.net/docs/getting-started/installation#using-the-monogame-pipeline-gui).
+The DLL that should be referenced is called `TiledCS.Extensions.MonoGame.Content.Pipeline.dll` and can usually be found in `bin\Debug` or `bin\Release`, depending on
+your selected release type.
+
+Once done, you should be able to load maps as follows:
+```cs
+var map = Content.Load<TiledMap>("TestMap");
+```
+This will load a TMX file that was added to your Content Pipeline project called `TestMap`. That's all that's needed to load up a single map!
+
+Have a look at the [TiledCS repository]() to get an overview of all the available
+properties. Beyond this point map handling works exactly the same as any project
+using the TiledCS library.
+
 ## Development
 
 If you want to compile the library on your own or contribute to it, you'll have to get started by
