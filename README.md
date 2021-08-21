@@ -29,8 +29,8 @@ but for more advanced cases you're probably looking for a custom rendering solut
 First off, you will need to clone the library and include it into your project as you
 normally would. Compile the project once in your editor/IDE of choice and
 [reference the freshly built DLL in your MonoGame Content Pipeline project](https://www.monogameextended.net/docs/getting-started/installation#using-the-monogame-pipeline-gui).
-The DLL that should be referenced is called `TiledCS.Extensions.MonoGame.Content.Pipeline.dll` and can usually be found in `bin\Debug` or `bin\Release`, depending on
-your selected release type.
+The DLL that should be referenced is called `TiledCS.Extensions.MonoGame.Content.Pipeline.dll` and can usually be found somewhere in `bin\Debug` or `bin\Release`,
+depending on your selected release type.
 
 Once done, you should be able to load maps as follows:
 ```cs
@@ -38,9 +38,13 @@ var map = Content.Load<TiledMap>("TestMap");
 ```
 This will load a TMX file that was added to your Content Pipeline project called `TestMap`. That's all that's needed to load up a single map!
 
-Have a look at the [TiledCS repository]() to get an overview of all the available
-properties. Beyond this point map handling works exactly the same as any project
+Have a look at the [TiledCS](https://github.com/TheBoneJarmer/TiledCS)
+repository to get an overview of all the available properties.
+Beyond this point map handling works exactly the same as any project
 using the TiledCS library.
+
+If you want to use the built-in renderer, have a look at the example project for
+this in the `Example.Renderer` directory of this repository.
 
 ## Development
 
