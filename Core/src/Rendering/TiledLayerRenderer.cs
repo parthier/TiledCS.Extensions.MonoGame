@@ -4,6 +4,7 @@ using System;
 
 namespace TiledCS.Extensions.MonoGame.Rendering
 {
+    [Obsolete("Built-in rendering is subject for removal. Please refer to the GitHub repository for this project for more information.")]
     public class TiledLayerRenderer
     {
         public TiledMapRenderer Map { get; private set; }

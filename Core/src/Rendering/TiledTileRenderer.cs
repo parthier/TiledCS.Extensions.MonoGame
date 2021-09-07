@@ -1,10 +1,12 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.IO;
 
 namespace TiledCS.Extensions.MonoGame.Rendering
 {
+    [Obsolete("Built-in rendering is subject for removal. Please refer to the GitHub repository for this project for more information.")]
     public class TiledTileRenderer
     {
         private TiledLayerRenderer _layer;
