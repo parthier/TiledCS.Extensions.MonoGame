@@ -5,13 +5,13 @@
 /intermediateDir:obj/$(Platform)
 /platform:DesktopGL
 /config:
-/profile:Reach
+/profile:HiDef
 /compress:False
 
 #-------------------------------- References --------------------------------#
 
 /reference:../bin/Debug/netcoreapp3.1/TiledCS.dll
-/reference:../../Pipeline/bin/Debug/netstandard2.0/TiledCS.Extensions.MonoGame.Content.Pipeline.dll
+/reference:../../Content.Pipeline/bin/Debug/netstandard2.0/TiledCS.Extensions.MonoGame.Content.Pipeline.dll
 
 #---------------------------------- Content ---------------------------------#
 
