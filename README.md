@@ -1,3 +1,8 @@
+**IMPORTANT:** Due to a lack of time and documentation on how to write a proper content
+pipeline extension, this library is no longer being worked on. It's archived for now,
+although I might look into an alternative method of getting this to work in the future
+once I have more time. Feel free to take a fork of the library to further maintain it!
+
 # TiledCS.Extensions.MonoGame
 
 A MonoGame port of the [TiledCS](https://github.com/TheBoneJarmer/TiledCS) library that comes
