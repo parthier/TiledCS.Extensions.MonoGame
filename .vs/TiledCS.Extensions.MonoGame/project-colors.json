@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "5ac80a65-482d-4b2d-9ff6-c520fbbd00dd": {
+      "ProjectGuid": "5ac80a65-482d-4b2d-9ff6-c520fbbd00dd",
+      "DisplayName": "TiledCS.Extensions.MonoGame",
+      "ColorIndex": 0
+    },
+    "2d6b1a51-608c-43ca-885b-3131676c9fe9": {
+      "ProjectGuid": "2d6b1a51-608c-43ca-885b-3131676c9fe9",
+      "DisplayName": "TiledCS.Extensions.MonoGame.Content.Pipeline",
+      "ColorIndex": 1
+    },
+    "d2bfcc9b-093e-4a85-aca8-62153728e8eb": {
+      "ProjectGuid": "d2bfcc9b-093e-4a85-aca8-62153728e8eb",
+      "DisplayName": "TiledCS.Extensions.MonoGame.Example",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}

@@ -42,7 +42,9 @@ namespace TiledCS.Extensions.MonoGame.Content.Pipeline
                 output.Write(layerLength);
 
                 for (int index = 0; index < layerLength; ++index)
+                {
                     WriteLayer(map.Layers[index], output);
+                }
             }
             else
             {
@@ -76,12 +78,13 @@ namespace TiledCS.Extensions.MonoGame.Content.Pipeline
         {
             output.Write(layer.id);
             output.Write(layer.name);
-
+          
             output.Write(layer.width);
             output.Write(layer.height);
 
             output.Write(layer.type);
             output.Write(layer.visible);
+           
 
             if (layer.data != null)
             {
@@ -114,8 +117,21 @@ namespace TiledCS.Extensions.MonoGame.Content.Pipeline
                 int objectLength = layer.objects.Length;
                 output.Write(objectLength);
 
-                for (int index = 0; index < objectLength; ++index)
+                for (int index = 0; index < objectLength; ++index) 
                     WriteObject(layer.objects[index], output);
+            }
+            else
+            {
+                output.Write(0);
+            }
+
+            if (layer.properties != null)
+            {
+                int layerLength = layer.properties.Length;
+                output.Write(layerLength);
+
+                for (int index = 0; index < layerLength; ++index)
+                    WriteProperty(layer.properties[index], output);
             }
             else
             {
@@ -126,9 +142,14 @@ namespace TiledCS.Extensions.MonoGame.Content.Pipeline
         public void WriteObject(TiledObject @object, ContentWriter output)
         {
             output.Write(@object.id);
-            output.Write(@object.name);
 
-            output.Write(@object.type);
+            if (@object.name != null)
+                output.Write(@object.name);
+            else output.Write("");
+
+            if (@object.type != null)
+                output.Write(@object.type);
+            else output.Write("");
 
             output.Write(@object.x);
             output.Write(@object.y);
@@ -145,6 +166,19 @@ namespace TiledCS.Extensions.MonoGame.Content.Pipeline
 
                 for (int index = 0; index < propertyLength; ++index)
                     WriteProperty(@object.properties[index], output);
+            }
+            else
+            {
+                output.Write(0);
+            }
+
+            if (@object.polygon != null)
+            {
+                int polygonLength = @object.polygon.points.Length;
+                output.Write(polygonLength);
+
+                for (int index = 0; index < polygonLength; ++index)
+                    output.Write(@object.polygon.points[index]);
             }
             else
             {

@@ -17,12 +17,21 @@ namespace TiledCS.Extensions.MonoGame.Content.Pipeline
             output.Write(tileset.TileCount);
             output.Write(tileset.Columns);
 
-            output.Write(tileset.Image);
-            output.Write(tileset.ImageWidth);
-            output.Write(tileset.ImageHeight);
+            if (tileset.Image != null)
+            {
+                output.Write(1);
+                output.Write(tileset.Image.source);
+                output.Write(tileset.Image.width);
+                output.Write(tileset.Image.height);
+            }
+            else
+            {
+                output.Write(0);
+            }
 
-            output.Write(tileset.Spacing);
-            output.Write(tileset.Margin);
+                output.Write(tileset.Spacing);
+                output.Write(tileset.Margin);
+            
 
             if (tileset.Tiles != null)
             {
@@ -67,6 +76,31 @@ namespace TiledCS.Extensions.MonoGame.Content.Pipeline
         public void WriteTile(TiledTile tile, ContentWriter output)
         {
             output.Write(tile.id);
+
+            if (tile.image != null)
+            {
+                output.Write(1);
+                output.Write(tile.image.source);
+                output.Write(tile.image.width);
+                output.Write(tile.image.height);
+            }
+            else
+            {
+                output.Write(0);
+            }
+
+            if (tile.objects != null)
+            {
+                int objectLength = tile.objects.Length;
+                output.Write(objectLength);
+
+                for (int index = 0; index < objectLength; ++index)
+                    WriteObject(tile.objects[index], output);
+            }
+            else
+            {
+                output.Write(0);
+            }
 
             if (tile.terrain != null)
             {
@@ -130,6 +164,53 @@ namespace TiledCS.Extensions.MonoGame.Content.Pipeline
         public override string GetRuntimeReader(TargetPlatform targetPlatform)
         {
             return "TiledCS.Extensions.MonoGame.Content.TiledTilesetReader, TiledCS.Extensions.MonoGame";
+        }
+
+        public void WriteObject(TiledObject @object, ContentWriter output)
+        {
+            output.Write(@object.id);
+
+            if (@object.name != null)
+                output.Write(@object.name);
+            else output.Write("");
+
+            if (@object.type != null)
+                output.Write(@object.type);
+            else output.Write("");
+
+            output.Write(@object.x);
+            output.Write(@object.y);
+
+            output.Write(@object.rotation);
+
+            output.Write(@object.width);
+            output.Write(@object.height);
+
+            if (@object.properties != null)
+            {
+                int propertyLength = @object.properties.Length;
+                output.Write(propertyLength);
+
+                for (int index = 0; index < propertyLength; ++index)
+                    WriteProperty(@object.properties[index], output);
+            }
+            else
+            {
+                output.Write(0);
+            }
+
+            if (@object.polygon != null)
+            {
+                int polygonLength = @object.polygon.points.Length;
+                output.Write(polygonLength);
+
+                for (int index = 0; index < polygonLength; ++index)
+                    output.Write(@object.polygon.points[index]);
+            }
+            else
+            {
+                output.Write(0);
+            }
         }
     }
 }

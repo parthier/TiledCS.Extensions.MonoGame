@@ -17,9 +17,14 @@ namespace TiledCS.Extensions.MonoGame.Content
             tileset.TileCount = input.ReadInt32();
             tileset.Columns = input.ReadInt32();
 
-            tileset.Image = input.ReadString();
-            tileset.ImageWidth = input.ReadInt32();
-            tileset.ImageHeight = input.ReadInt32();
+            int image = input.ReadInt32();
+            if (image != 0)
+            {
+                tileset.Image = new TiledImage();
+                tileset.Image.source = input.ReadString();
+                tileset.Image.width = input.ReadInt32();
+                tileset.Image.height = input.ReadInt32();
+            }
 
             tileset.Spacing = input.ReadInt32();
             tileset.Margin = input.ReadInt32();
@@ -61,6 +66,24 @@ namespace TiledCS.Extensions.MonoGame.Content
         {
             TiledTile tile = new TiledTile();
             tile.id = input.ReadInt32();
+
+            int image = input.ReadInt32();
+            if (image != 0)
+            {
+                tile.image = new TiledImage();
+                tile.image.source = input.ReadString();
+                tile.image.width = input.ReadInt32();
+                tile.image.height = input.ReadInt32();
+            }
+
+            int objectLength = input.ReadInt32();
+            if (objectLength > 0)
+            {
+                tile.objects = new TiledObject[objectLength];
+
+                for (int index = 0; index < objectLength; ++index)
+                    tile.objects[index] = ReadObject(input);
+            }
 
             int terrainLength = input.ReadInt32();
 
@@ -124,6 +147,47 @@ namespace TiledCS.Extensions.MonoGame.Content
             animation.duration = input.ReadInt32();
 
             return animation;
+        }
+
+        private TiledObject ReadObject(ContentReader input)
+        {
+            TiledObject @object = new TiledObject();
+
+            @object.id = input.ReadInt32();
+            @object.name = input.ReadString();
+
+            @object.type = input.ReadString();
+
+            @object.x = input.ReadSingle();
+            @object.y = input.ReadSingle();
+
+            @object.rotation = input.ReadInt32();
+
+            @object.width = input.ReadSingle();
+            @object.height = input.ReadSingle();
+
+            int propertyLength = input.ReadInt32();
+
+            if (propertyLength > 0)
+            {
+                @object.properties = new TiledProperty[propertyLength];
+
+                for (int index = 0; index < propertyLength; ++index)
+                    @object.properties[index] = ReadProperty(input);
+            }
+
+            int polygonLength = input.ReadInt32();
+
+            if (polygonLength > 0)
+            {
+                @object.polygon = new TiledPolygon();
+                @object.polygon.points = new float[polygonLength];
+
+                for (int index = 0; index < polygonLength; ++index)
+                    @object.polygon.points[index] = input.ReadSingle();
+            }
+
+            return @object;
         }
     }
 }

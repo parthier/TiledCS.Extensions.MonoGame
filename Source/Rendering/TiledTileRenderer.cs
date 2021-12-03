@@ -35,10 +35,10 @@ namespace TiledCS.Extensions.MonoGame.Rendering
 
             _tileset = _layer.Map.GetTilesetFromGid(tileset);
 
-            _sourceRectangle = new Rectangle(_tileid * _tileset.TileWidth % _tileset.ImageWidth,
-                _tileid * _tileset.TileWidth / _tileset.ImageWidth * _tileset.TileHeight, _tileset.TileWidth, _tileset.TileHeight);
+            _sourceRectangle = new Rectangle(_tileid * _tileset.TileWidth % _tileset.Image.width,
+                _tileid * _tileset.TileWidth / _tileset.Image.width * _tileset.TileHeight, _tileset.TileWidth, _tileset.TileHeight);
 
-            string assetName = Path.GetFileNameWithoutExtension(_tileset.Image);
+            string assetName = Path.GetFileNameWithoutExtension(_tileset.Image.source);
             _texture = content.Load<Texture2D>(assetName);
         }
 

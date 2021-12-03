@@ -36,7 +36,9 @@ namespace TiledCS.Extensions.MonoGame.Content
                 map.Layers = new TiledLayer[layerLength];
 
                 for (int index = 0; index < layerLength; ++index)
+                {
                     map.Layers[index] = ReadLayer(input);
+                }
             }
 
             map.Orientation = input.ReadString();
@@ -115,6 +117,18 @@ namespace TiledCS.Extensions.MonoGame.Content
                     layer.objects[index] = ReadObject(input);
             }
 
+            int propertiesLength = input.ReadInt32();
+
+            if (propertiesLength > 0)
+            {
+                layer.properties = new TiledProperty[propertiesLength];
+
+                for (int index = 0; index < propertiesLength; ++index)
+                {
+                    layer.properties[index] = ReadProperty(input);
+                }
+            }
+
             return layer;
         }
 
@@ -143,6 +157,17 @@ namespace TiledCS.Extensions.MonoGame.Content
 
                 for (int index = 0; index < propertyLength; ++index)
                     @object.properties[index] = ReadProperty(input);
+            }
+
+            int polygonLength = input.ReadInt32();
+
+            if (polygonLength > 0)
+            {
+                @object.polygon = new TiledPolygon();
+                @object.polygon.points = new float[polygonLength];
+
+                for (int index = 0; index < polygonLength; ++index)
+                    @object.polygon.points[index] = input.ReadSingle();
             }
 
             return @object;
