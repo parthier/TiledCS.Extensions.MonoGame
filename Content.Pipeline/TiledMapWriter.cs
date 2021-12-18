@@ -151,6 +151,8 @@ namespace TiledCS.Extensions.MonoGame.Content.Pipeline
                 output.Write(@object.type);
             else output.Write("");
 
+            output.Write(@object.gid);
+
             output.Write(@object.x);
             output.Write(@object.y);
 

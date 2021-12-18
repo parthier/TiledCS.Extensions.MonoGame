@@ -141,6 +141,8 @@ namespace TiledCS.Extensions.MonoGame.Content
 
             @object.type = input.ReadString();
 
+            @object.gid = input.ReadInt32();
+
             @object.x = input.ReadSingle();
             @object.y = input.ReadSingle();
 
